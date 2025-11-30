@@ -1,0 +1,261 @@
+
+
+:root {
+  --bg: #0e1a24;
+  --surface: #122533;
+  --primary-blue: #3aa0ff;
+  --primary-green: #2bd1a6;
+  --text: #e6f1f6;
+  --muted: #9db4c0;
+  --border: #1f3a4d;
+  --danger: #ff6b6b;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0c1720, #0f2230);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+main.container { flex: 1; }
+
+.container { width: min(100%, 980px); margin: 0 auto; padding: 16px; }
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(18,37,51,0.9);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { color: var(--primary-green); font-weight: 700; text-decoration: none; font-size: 20px; }
+.nav { display: flex; gap: 12px; }
+.nav a { color: var(--text); text-decoration: none; padding: 8px 10px; border-radius: 6px; }
+.nav a:hover { background: rgba(58,160,255,0.12); color: var(--primary-blue); }
+.linklike { background: none; border: none; color: var(--text); cursor: pointer; padding: 8px 10px; border-radius: 6px; }
+.linklike:hover { background: rgba(43,209,166,0.12); color: var(--primary-green); }
+
+.app-footer { margin-top: 40px; padding: 24px 0; border-top: 1px solid var(--border); color: var(--muted); }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.input, .textarea, .select { width: 100%; background: #0d1c28; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.textarea { min-height: 140px; resize: vertical; }
+.row { display: grid; gap: 12px; }
+.row.cols-2 { grid-template-columns: 1fr 1fr; }
+
+.btn { background: var(--primary-blue); color: #08131a; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.btn:hover { filter: brightness(1.1); }
+.btn.secondary { background: var(--primary-green); }
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); margin-top: 2px; display: block;}
+.btn.danger { background: var(--danger); color: white; }
+
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left; }
+
+.list { display: grid; gap: 10px; }
+.list-item { display: grid; grid-template-columns: 60px 1fr 160px 80px; align-items: center; gap: 10px; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.list-item a { color: var(--primary-blue); text-decoration: none; }
+
+.meta { color: var(--muted); font-size: 12px; }
+
+.content-box { white-space: pre-wrap; background: #0b1823; border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+
+.form { display: grid; gap: 12px; }
+.form .actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+.center { display: grid; place-items: center; }
+
+hr.sep { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+/* Spacing */
+.mt-8-mb-8 { margin-top: 8px; margin-bottom: 8px; }
+.mb-8 { margin-bottom: 8px; }
+
+
+.fw-bold { font-weight: bold; }
+
+
+.btn-compact { padding: 4px 8px; }
+
+.image-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.image-preview-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.image-preview-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+/* Bbs detail styles */
+.bbs-detail-header-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.bbs-detail-table {
+  margin-top: 8px;
+}
+
+.bbs-detail-image {
+  max-width: 200px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.bbs-detail-image-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.bbs-detail-image-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bbs-detail-image-delete-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: none;
+  background: var(--danger);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bbs-detail-image-delete-btn img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.bbs-detail-login-card {
+  margin-top: 12px;
+}
+
+.bbs-detail-login-actions {
+  margin-top: 8px;
+}
+
+/* Comment list styles */
+.comment-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-title {
+  margin: 0;
+}
+
+.comment-pagination-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-list {
+  margin-top: 8px;
+}
+
+.comment-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.comment-author-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background: rgba(58,160,255,0.18);
+  color: #3aa0ff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.comment-author-name {
+  font-weight: 600;
+}
+
+.comment-content {
+  margin-top: 8px;
+  white-space: pre-wrap;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.comment-edit-textarea {
+  margin-top: 8px;
+}
+
+.comment-write-card {
+  margin-top: 12px;
+}
+
+.comment-write-actions {
+  margin-top: 8px;
+}
+
+/* Bbs update styles */
+.update-image-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.update-image-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-image-input {
+  margin-top: 8px;
+}
